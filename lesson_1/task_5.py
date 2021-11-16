@@ -21,15 +21,16 @@ def percent_deposit(summa: int, time_month: int) -> float:
         {'begin_sum': 100000, 'end_sum': 1000000, 6: 7, 12: 8, 24: 7.5},
     )
     for dep in bank_deposits:
-        if dep['begin_sum'] <= summa <= dep['end_sum']:
-            return bank_deposits[time_month]
+        if dep['begin_sum'] <= summa < dep['end_sum']:
+            return dep[time_month]
 
 
-def deposit(summa: int, time_month: int) -> None:
+def deposit(summa: int, time_month: int, charge: int) -> None:
     """
     Находим сумму вклада
     :param summa: сумма вклада
     :param time_month: срок вклада в месяцах
+    :param charge: дополнительный ежемесячный вклад
     :return:
     """
     total = summa
@@ -37,9 +38,11 @@ def deposit(summa: int, time_month: int) -> None:
     for month in range(time_month):
         profit = total * percent / 100 / 12
         total += profit
+        if month != 0 and month != time_month - 1:
+            total += charge + charge * percent / 100 / 12
 
     print(f'{total:.2f}')
 
 
 if __name__ == '__main__':
-    deposit(4555, 12)
+    deposit(4555, 12, 124)
