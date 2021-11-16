@@ -26,3 +26,5 @@ def show_mult_table(a: int, b: int) -> None:
 
 if __name__ == '__main__':
     show_mult_table(4, 12)
+
+#  Pull

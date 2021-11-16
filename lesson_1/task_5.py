@@ -46,3 +46,5 @@ def deposit(summa: int, time_month: int, charge: int) -> None:
 
 if __name__ == '__main__':
     deposit(4555, 12, 124)
+
+#  Pull
