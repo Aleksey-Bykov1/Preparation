@@ -19,5 +19,6 @@ class ItemDiscountReport(ItemDiscount):
 
 if __name__ == '__main__':
     product = ItemDiscount('printer', '700')
+    print(product.name, product.price)
     product_report = ItemDiscountReport(product.name, product.price)
     product_report.get_parent_data()
